@@ -1,7 +1,9 @@
 <div>
-  <h1>My Quote</h1>
-  <p>My quote for today is {{ quote }}</p>
-</div>
+  <h1>Creative Quotes</h1>
+    <ul>
+    <li *ngFor='let quote of quotes'> {{quote}}</li>
+  </ul>
+ </div>
 
 
 
@@ -28,7 +30,4 @@
 
 
 
-
-
-
-<router-outlet></router-outlet>  
+<router-outlet></router-outlet> -->
