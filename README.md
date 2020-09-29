@@ -41,7 +41,7 @@ Run `ng e2e` to execute the end-to-end tests.
 
 ## License
 
-[MIT](https://github.com/Susan-Kathoni/Creative-Quotes/blob/master/LICENSE)
+[MIT](https://github.com/Susan-Kathoni/Creative-Quotes/BLOB/master/LICENSE)
 
 Copyright (c) 2020 Susan Kathoni
 
