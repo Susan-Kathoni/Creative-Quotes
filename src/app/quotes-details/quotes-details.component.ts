@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { Quote } from '@angular/compiler';
+import { Quote } from '../quotes';
 
 @Component({
   selector: 'app-quotes-details',
@@ -18,7 +18,12 @@ export class QuotesDetailsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): {
+  ngOnInit() : void {
   }
 
 }
+
+
+
+ 
+

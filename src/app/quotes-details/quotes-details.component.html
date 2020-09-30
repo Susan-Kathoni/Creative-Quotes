@@ -1,7 +1,4 @@
 <p>{{quote.quoteDescription}}</p>
-<button (click)= 'quoteDisliked(true)'>Cancel</button>
-
-
-<!-- {{quote.authorName}} 
-{{quote.quoteDescription}}
-{{ quote.authorName}} -->
+<p>Written by: {{quote.authorName}}</p>
+<p>Submitted {{quote.dateAdded|dateTransform}} days ago</p>
+<button class="btn btn-danger" (click)='quoteDisliked(true)'>Cancel</button>

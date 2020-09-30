@@ -1,73 +1,40 @@
-<h1>My quote:</h1>
-<hr>
-<ul>
-    <div *ngFor='let quote of quotes;let i = index' class="card-body">
-      <li>{{quote.authorName}}</li>
-      <button (click)='toggleDetails(i)'>See quote</button>
-      <!-- <app-quote-detail *ngIf='quote.showDescription' [goal]='goal' (isDisliked) = 'dislikedGoal($event,i)'></app-goal-detail> --> 
+<div class="container">
+  <h1><strong>CREATIVE QUOTES</strong></h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor='let quote of quotes;let i = index' class='col-md-6'>
+        <h3 class="card-title"> <b>My quote is:</b></h3>
+        <p class="card-text"><i>Quote: {{quote.quoteDescription}}</i> </p>
+        <p class="card-text">Written by: {{quote.authorName}}</p>
+        <div>
+          <h5 *ngIf="quote === highestUpVote()" class="card-title">
+            <i class="fas fa-trophy"></i>
+          </h5>
+          <button (click)='toggleDetails(i)' class="btn btn-primary">See Details</button>
+          <app-quote-detail *ngIf="quote.quoteDescription" [quote]="quote" (isDisliked)='deleteQuote($event,i)'>
+          </app-quote-detail>
+        </div>
+        <form class="form-inline">
+          <button class="btn btn-primary btn-inline"(click)="addUpVote(i)">Up vote</button>
+        {{ quote.upvote }}
+          <button class="btn btn-primary btn-inline" (click)="addDownVote(i)">
+            Down vote
+          </button>
+          {{ quote.downvote }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-md-4">
+  <app-quote-input-form (createQuote)="createNewQuote($event)"></app-quote-input-form>
+</div>
+</div>
 
 
-      <h5 class="card-title"> Quote: {{quote.quoteDescription}}</h5>
-    <p class="card-text">Author: {{quote.authorName}} <br>
-      <a href="#" class="btn btn-primary">Show Details</a>
-  </div>
-</ul>
-  
 
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Author:{{quote.authorName}}</div>
-  <div class="card-body">
-  <p class="card-text">Quote:{{quote.quoteDescription}}</p>
-  </div>
-  <a href="#" class="btn btn-primary">Cancel</a>
-  <a href="#" class="btn btn-primary">Display details</a>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Warning card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Info card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Light card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Dark card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+
+
+
