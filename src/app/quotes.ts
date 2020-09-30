@@ -2,7 +2,8 @@ export class Quotes {
   id: number;
   quoteDescription: string;
   authorName: string;
-  dateSubmitted: Date;
+  submitterName: string;
+ dateSubmitted: Date;
   dateToday: Date;
   showDetails: boolean;
   upvote: number;
@@ -10,19 +11,24 @@ export class Quotes {
 
 
 
-  constructor(id: number,quoteDescription: string, authorName: string, dateSubmitted: Date, dateToday: Date, showDetails: boolean, upvote: number, downvote: number  ) {
+  constructor(id: number,quoteDescription: string, authorName: string, dateSubmitted: Date, submitterName: string ) {
     this.id = id;
     this.quoteDescription = quoteDescription;
     this.authorName = authorName;
-    this.dateSubmitted = dateSubmitted;
-    this.dateToday = dateToday;
-    this.showDetails = showDetails;
-    this.upvote = upvote;
-    this.downvote = downvote;
+    this.submitterName = submitterName;
+    this.dateSubmitted =dateSubmitted;
+    this.showDetails = false;
+    this.upvote = 0;
+    this.downvote = 0;
+
     
   }
   
 }
+
+
+
+
 
   
    
