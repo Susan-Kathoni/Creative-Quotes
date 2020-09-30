@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { Quote } from '../quotes';
+import { Quotes } from '../quotes';
 
 @Component({
   selector: 'app-quotes-details',
@@ -9,11 +9,11 @@ import { Quote } from '../quotes';
     
 export class QuotesDetailsComponent implements OnInit {
  
-    @Input() quote: Quote;
+    @Input() quote: Quotes;
     @Output() isDisliked = new EventEmitter<boolean>();
   
-  quoteDisliked(disliked:boolean){
-    this.isDisliked.emit(disliked);
+  quoteDisliked(isDisliked:boolean){
+    this.isDisliked.emit(isDisliked);
   }
 
   constructor() { }
@@ -22,6 +22,13 @@ export class QuotesDetailsComponent implements OnInit {
   }
 
 }
+
+
+
+ 
+
+
+
 
 
 

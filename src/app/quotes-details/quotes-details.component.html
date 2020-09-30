@@ -1,4 +1,9 @@
 <p>{{quote.quoteDescription}}</p>
 <p>Written by: {{quote.authorName}}</p>
-<p>Submitted {{quote.dateAdded|dateTransform}} days ago</p>
-<button class="btn btn-danger" (click)='quoteDisliked(true)'>Cancel</button>
+<p>Submitted By: {{quote.submitterName}}</p>
+<p>Submitted past {{quote.dateSubmitted|dateTransform}} days.</p>
+<button class="btn btn-danger" (click)='isDisliked(true)'>Cancel</button>
+
+
+
+
