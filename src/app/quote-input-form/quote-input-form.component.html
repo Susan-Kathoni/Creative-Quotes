@@ -1,25 +1,36 @@
-<<div class="container-fluid">
-    <h2 class="text-center">CREATE NEW A NEW QUOTE.</h2>
-    <hr>
-    <form>
-        <div class="form-group">
+<div class="container-fluid">
+  <h3 class="text-center"><strong>Create a new quote.</strong> </h3>
+  <hr>
+  <form (ngSubmit)='createQuote()' #quoteInputForm='ngForm'>
+    <div class="form-group">
 
-            <div class="form-group">
-  
-                <label for="description">Your quote:</label>
-                <textarea class="form-control" id="description" rows="4" required></textarea>
-      
-            </div>
-  
-            <label for="name">Name of the author:</label>
-            <input type="text" required class="form-control" id="name">
-  
-        </div>
-        
-        <div class="form-group">
-            <label for="complete">Date created:</label>
-            <input type='date' id="complete" required>
-  
-        </div>
-    </form>
-  </div>
+      <div class="form-group">
+
+        <label for="quotedescription">Your quote:</label>
+        <textarea class="form-control" type="text" id="quote" rows="2" [(ngModel)]='newQuote.text'
+          placeholder="Type Quote" #quoteText='ngModel' required></textarea>
+
+      </div>
+
+      <label for="name">Name of the author:</label>
+      <input type="text" required class="form-control" id="authorName" [(ngModel)]='newQuote.authorName'
+        placeholder="Type name of the author" #author='ngModel'>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+
+
+
+
+
+<!-- <div [hidden]="quoteText.valid || quoteText.pristine" class="alert alert-danger">
+  <p>Text is required</p>
+</div> -->
+
+<!-- <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+  <p>Author is required</p>
+</div> -->
