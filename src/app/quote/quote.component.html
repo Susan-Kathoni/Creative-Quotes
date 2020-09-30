@@ -1,40 +1,53 @@
+<!-------------------------------quote input form------------------------->
+<div class="row-9">
+  <div class="col-md-3">
+    <app-quote-input-form (createQuote)="createNewQuote($event)"></app-quote-input-form>
+  </div>
+</div>
+
+<!----------------------------------quote display cards------------------------------>
+
 <div class="container">
   <h1><strong>CREATIVE QUOTES</strong></h1>
   <hr>
-  <div class="row">
+  <div class="row-6">
     <div class="col-md-6">
       <div *ngFor='let quote of quotes;let i = index' class='col-md-6'>
+        <div class="card-body">
         <h3 class="card-title"> <b>My quote is:</b></h3>
-        <p class="card-text"><i>Quote: {{quote.quoteDescription}}</i> </p>
-        <p class="card-text">Written by: {{quote.authorName}}</p>
+        <p class="card-text"><i>{{quote.quoteDescription}}</i> </p>
+        <p class="card-text"><strong>Written by: {{quote.authorName}}</strong></p>
         <div>
-          <h5 *ngIf="quote === highestUpVote()" class="card-title">
-            <i class="fas fa-trophy"></i>
-          </h5>
-          <button (click)='toggleDetails(i)' class="btn btn-primary">See Details</button>
-          <app-quote-detail *ngIf="quote.quoteDescription" [quote]="quote" (isDisliked)='deleteQuote($event,i)'>
+          
+          <button class="btn btn-info" (click)="toggleDetails(i)">
+            Toggle Details
+          </button>
+          <app-quote-detail
+            *ngIf="quote.showDetails"
+            [quote]="quote"
+            (isdislike)="delete($event, i)"
+          ></app-quote-detail>
+        </div>
+          <app-quote-detail *ngIf="quote.showDetails" [quote]="quote" (isDisliked)='delete($event,i)'>
+            <button class="btn btn-primary btn-inline" (click)='delete($event,i)'>Cancel</button>
           </app-quote-detail>
         </div>
         <form class="form-inline">
-          <button class="btn btn-primary btn-inline"(click)="addUpVote(i)">Up vote</button>
-        {{ quote.upvote }}
+          <button class="btn btn-primary btn-inline" (click)="addUpVote(i)">Up vote</button>
+          {{ quote.upvote }}
+          <h4 *ngIf="quote === highestUpVote()" class="card-title">
+            <i class="fas fa-star"></i>
+          </h4>
           <button class="btn btn-primary btn-inline" (click)="addDownVote(i)">
             Down vote
           </button>
-          {{ quote.downvote }}
+          {{quote.downvote }}
         </form>
       </div>
     </div>
   </div>
 </div>
-</div>
-<div class="col-md-4">
-  <app-quote-input-form (createQuote)="createNewQuote($event)"></app-quote-input-form>
-</div>
-</div>
-
-
-
-
-
-
+ 
+      
+          
+           

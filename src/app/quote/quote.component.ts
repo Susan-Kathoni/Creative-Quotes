@@ -1,22 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import {Quote } from '../quotes';
+import { Quotes } from '../quotes';
 
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
-  styleUrls: ['./quote.component.css']
+  styleUrls: ['./quote.component.css'],
 })
-  
- export class QuoteComponent implements OnInit {
-  quotes: Quote[] = [
-    new Quote(1, 'A good day starts early','Mark Maasai', new Date(2016, 2, 23)), 
-    new Quote ( 2,'Hardwork pays','Michael Padus', new Date(2006, 12, 3)),
-    new Quote(3, 'You become what you eat','Crispus Matheka', new Date(2016, 5, 20)),
-    new Quote ( 4,'You can learn Angular','Sister Susan',new Date(2020, 10, 8)),
+export class QuoteComponent implements OnInit {
+  quotes: Quotes[] = [
+    new Quotes(
+      1,
+      'Solitude is a dangerous place to reason, without being favorable to virtue',
+      'Dr. Samuel Johnson.',
+      new Date(2019, 8, 7),
+      'Msamaria Mwema'
+    ),
+    new Quotes(
+      2,
+      'Honesty is the best policy - In the vast majority of cases, influence is wrought by talking',
+      'Michael Padus',
+      new Date(2006, 12, 3),
+      'Susan Kathoni'
+    ),
+    new Quotes(
+      3,
+      'You become what you eat',
+      'Crispus Matheka',
+      new Date(2016, 5, 20),
+      'Andrew Marwa'
+    ),
+    new Quotes(
+      4,
+      'It is always best to speak pragmatically to a pragmatic person. Most people will rarely act against their own self interest',
+      'Robert Greene',
+      new Date(2020, 10, 8), 'Sister Susan'
+    ),
   ];
 
-  toggleDetails(index){
-    this.quotes[index].quoteDescription = !this.quotes[index].quoteDescription;
+  toggleDetails(index) {
+    this.quotes[index].showDetails = !this.quotes[index].showDetails;
   }
 
   addUpVote(index) {
@@ -27,9 +49,8 @@ import {Quote } from '../quotes';
     this.quotes[index].downvote++;
   }
 
-
   highestUpVote() {
-    let highestUpVoteQuote = new Quote(0, '', '', '', new Date());
+    let highestUpVoteQuote = new Quotes(0, '', '', new Date(), '');
     for (let i = 0; i < this.quotes.length; i++) {
       if (this.quotes[i].upvote > highestUpVoteQuote.upvote) {
         highestUpVoteQuote = this.quotes[i];
@@ -42,9 +63,8 @@ import {Quote } from '../quotes';
     }
   }
 
-
-   dislikedQuote(isDisliked: boolean, index: number) {
-    if (isDisliked){
+  dislikedQuote(isDisliked: boolean, index: number) {
+    if (isDisliked) {
       let toDelete = confirm(
         `Are you sure you want to cancel ${this.quotes[index].quoteDescription}?`
       );
@@ -52,16 +72,14 @@ import {Quote } from '../quotes';
         this.quotes.splice(index, 1);
       }
     }
-   }
-  
-   createNewQuote(newQuote: Quote) {
+  }
+
+  createNewQuote(newQuote: Quotes) {
     newQuote.id = this.quotes.length + 1;
     this.quotes.push(newQuote);
   }
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+}
