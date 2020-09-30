@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Quote } from '../quotes';
+import { Quotes } from '../quotes';
 
 @Component({
   selector: 'app-quote-input-form',
@@ -8,21 +8,22 @@ import { Quote } from '../quotes';
 })
 export class QuoteInputFormComponent implements OnInit {
 
-  newQuote: Quote = new Quote(0, '', '', '', new Date());
+  newQuote: Quotes = new Quotes(0, '','', new Date(), '');
 
-  @Output() enterQuote = new EventEmitter<Quote>();
+  @Output() enterQuote = new EventEmitter<Quotes>();
   createQuote() {
     this.enterQuote.emit(this.newQuote);
-    this.newQuote = new Quote(0, "", "", "", new Date());
+    this.newQuote = new Quotes(0, '', '', new Date(), '');
   }
 
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
+
+
 
 
   

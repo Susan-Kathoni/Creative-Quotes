@@ -6,16 +6,20 @@
 
       <div class="form-group">
 
-        <label for="quotedescription">Your quote:</label>
-        <textarea class="form-control" type="text" id="quote" rows="2" [(ngModel)]='newQuote.text'
-          placeholder="Type Quote" #quoteText='ngModel' required></textarea>
-
+        <label for="quotedescription">Your quote is</label>
+        <textarea class="form-control" type="text" id="quote" rows="3" [(ngModel)]='newQuote.quoteDescription'
+          placeholder="Type Quote" #quoteDescription='ngModel' required></textarea>
       </div>
-
+      <div class="form-group">
       <label for="name">Name of the author:</label>
       <input type="text" required class="form-control" id="authorName" [(ngModel)]='newQuote.authorName'
         placeholder="Type name of the author" #author='ngModel'>
-
+      </div>
+      <div class="form-group">
+      <label for="name">Submitted by:</label>
+        <input type="text" required class="form-control" id="submitterName" [(ngModel)]='newQuote.submitterName'
+          placeholder="Type name your name" #author='ngModel'>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
@@ -27,10 +31,5 @@
 
 
 
-<!-- <div [hidden]="quoteText.valid || quoteText.pristine" class="alert alert-danger">
-  <p>Text is required</p>
-</div> -->
 
-<!-- <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
-  <p>Author is required</p>
-</div> -->
+
