@@ -63,7 +63,7 @@ export class QuoteComponent implements OnInit {
     }
   }
 
-  dislikedQuote(isDisliked: boolean, index: number) {
+  deleteQuote(isDisliked: boolean, index: number) {
     if (isDisliked) {
       let toDelete = confirm(
         `Are you sure you want to cancel ${this.quotes[index].quoteDescription}?`
@@ -74,7 +74,7 @@ export class QuoteComponent implements OnInit {
     }
   }
 
-  createNewQuote(newQuote: Quotes) {
+  addNewQuote(newQuote: Quotes) {
     newQuote.id = this.quotes.length + 1;
     this.quotes.push(newQuote);
   }
