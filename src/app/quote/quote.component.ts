@@ -72,22 +72,29 @@ export class QuoteComponent implements OnInit {
       if (toDelete) {
         this.quotes.splice(index, 1);
       }
-    // }
+
   }
 
   addNewQuote(newQuote: Quotes) {
     newQuote.id = this.quotes.length + 1;
-    this.quotes.push(newQuote);
-    this.quotes.push();
+    this.quotes.unshift(newQuote);
   }
 
- validateForm() {
-    var x = document.forms["quoteDescription"]["authorName"]["submitterName"].value;
-    if (x == "") {
-      alert("All fields must be filled out");
-      return false;
-    }
- }
+ 
+  
+
+
+
+
+
+
+//  validateForm() {
+//     var x = document.forms["quoteDescription"]["authorName"]["submitterName"].value;
+//     if (x == "") {
+//       alert("All fields must be filled out");
+//       return false;
+//     }
+//  }
   
   
    constructor() {}

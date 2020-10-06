@@ -13,19 +13,21 @@
               <p class="card-text"><i>{{quote.quoteDescription}}</i> </p>
               <p class="card-text"><strong>Submitted by: {{quote.submitterName}}</strong></p>
               <p class="card-text"><strong>Authored by: {{quote.authorName}}</strong></p>
-
+              <!-- <p class="card-text">Submitted on: {{quote.dateSubmitted|date|uppercase}}.</p>  -->
+              <p>This quote was submitted <strong> {{quote.dateSubmitted |dateCount}}</strong> days ago</p>
               <app-quote-detail *ngIf="quote.showDetails" [quote]="quote" (isDisliked)='delete($event,i)'>
+
 
               </app-quote-detail>
             </div>
             <form class="form-inline">
-              <button class="btn btn-primary btn-inline" (click)="addUpVote(i)">Up vote</button>
+              <button class="btn" (click)="addUpVote(i)"><i class="fa fa-thumbs-up" aria-hidden="true" style="color: lawngreen;"></i></button>
               {{ quote.upvote }}
               <h4 *ngIf="quote === highestUpVote()" class="card-title">
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star" style="color: pink ;"></i>
               </h4>
-              <button class="btn btn-primary btn-inline" (click)="addDownVote(i)">
-                Down vote
+              <button class="btn" (click)="addDownVote(i)">
+                <i class="fa fa-thumbs-down" aria-hidden="true" style="color: red;"></i>
               </button>
               {{quote.downvote }}
             </form>

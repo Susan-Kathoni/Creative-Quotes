@@ -1,9 +1,4 @@
 export class Quotes {
-  id: number;
-  quoteDescription: string;
-  authorName: string;
-  submitterName: string;
- dateSubmitted: Date;
   dateToday: Date;
   showDetails: boolean;
   upvote: number;
@@ -11,7 +6,7 @@ export class Quotes {
 
 
 
-  constructor(id: number,quoteDescription: string, authorName: string, dateSubmitted: Date, submitterName: string ) {
+  constructor(public id: number, public quoteDescription: string, public authorName: string, public dateSubmitted: Date, public submitterName: string ) {
     this.id = id;
     this.quoteDescription = quoteDescription;
     this.authorName = authorName;
