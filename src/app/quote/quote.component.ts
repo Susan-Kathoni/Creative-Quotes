@@ -37,8 +37,9 @@ export class QuoteComponent implements OnInit {
     ),
   ];
 
-  toggleDetails(index) {
-    this.quotes[index].showDetails = !this.quotes[index].showDetails;
+  dateSubmitted() {
+    this.dateSubmitted();
+    
   }
 
   addUpVote(index) {
@@ -77,9 +78,19 @@ export class QuoteComponent implements OnInit {
   addNewQuote(newQuote: Quotes) {
     newQuote.id = this.quotes.length + 1;
     this.quotes.push(newQuote);
+    this.quotes.push();
   }
 
-  constructor() {}
+ validateForm() {
+    var x = document.forms["quoteDescription"]["authorName"]["submitterName"].value;
+    if (x == "") {
+      alert("All fields must be filled out");
+      return false;
+    }
+ }
+  
+  
+   constructor() {}
 
   ngOnInit(): void {}
 }

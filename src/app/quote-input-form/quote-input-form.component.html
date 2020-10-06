@@ -1,44 +1,36 @@
 <div class="container-fluid">
-  <h3 class="text-center"><strong>Create a new quote.</strong></h3>
+  <h3 class="text-center" style="color: wheat;"><strong>Create a new quote.</strong></h3>
   <hr />
 
   <div class="form-group">
     <form (ngSubmit)="submitQuote()" #quoteForm="ngForm">
-      <form name="myForm" onsubmit="return validateForm()" method="post" required>
-        <!-- <div class="form-group"> -->
-
-        <label for="quotedescription">Your quote is</label>
-        <textarea class="form-control" type="text" id="quote" rows="5" [(ngModel)]="newQuote.quoteDescription"
-          placeholder="Type Quote" name="quoteDescription" #quoteDescription="ngModel" required></textarea>
-        <div [hidden]="quoteDescription.valid || quoteDescription.pristine" class="alert alert-danger">
-          <p>Description is required</p>
+      <!-- <form name="myForm" click="return validateForm()" required>  -->
+    
+      <label for="quotedescription" style="color: lightsteelblue;">Your quote is</label>
+      <textarea class="form-control" type="text" id="quote" rows="5" [(ngModel)]="newQuote.quoteDescription"
+        placeholder="Type Quote" name="quoteDescription" #quoteDescription="ngModel" required></textarea>
+      <div [hidden]="quoteDescription.valid || quoteDescription.pristine" class="alert alert-danger">
+        <p>Description is required</p>
+      </div>
+      <div class="form-group">
+        <label for="name" style="color: lightsteelblue;">Name of the author:</label>
+        <input type="text" required class="form-control" id="authorName" [(ngModel)]="newQuote.authorName"
+          name="authorName" placeholder="Type name of the author" #authorName="ngModel">
+        <div [hidden]="authorName.valid || authorName.pristine" class="alert alert-danger">
+          <p>Name of the author is required!</p>
         </div>
-        <div class="form-group">
-          <label for="name">Name of the author:</label>
-          <input type="text" required class="form-control" id="authorName" [(ngModel)]="newQuote.authorName"
-            name="authorName" placeholder="Type name of the author" #authorName="ngModel">
-          <div [hidden]="authorName.valid || authorName.pristine" class="alert alert-danger">
-            <p>Name of the author is required!</p>
-          </div>
+      </div>
+     
+      <div class="form-group">
+        <label for="name" style="color: lightsteelblue;">Submitted by:</label>
+        <input type="text" required class="form-control" id="submitterName" [(ngModel)]="newQuote.submitterName"
+          name="submitterName" placeholder="Type name your name" #submitterName="ngModel" />
+        <div [hidden]="submitterName.valid || submitterName.pristine" class="alert alert-danger">
+          <p>Submitter's name is required!</p>
         </div>
-
-        <!-- <div class="form-group">
-        <label for="name">Date submitted </label>
-        <input type="dateSubmitted" placeholder="Date today" required class="form-control" id="dateSubmitted"
-          [(ngModel)]="newQuote.dateSubmitted" name="dateSubmitted" #dateSubmitted="ngModel" />
-        <div [hidden]="dateSubmitted.valid || dateSubmitted.pristine" class="alert alert-danger"></div>
-      </div> -->
-
-        <div class="form-group">
-          <label for="name">Submitted by:</label>
-          <input type="text" required class="form-control" id="submitterName" [(ngModel)]="newQuote.submitterName"
-            name="submitterName" placeholder="Type name your name" #submitterName="ngModel" />
-          <div [hidden]="submitterName.valid || submitterName.pristine" class="alert alert-danger">
-            <p>Submitter's name is required!</p>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    <!-- </form> -->
     </form>
   </div>
 </div>
