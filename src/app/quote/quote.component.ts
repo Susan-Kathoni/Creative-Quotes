@@ -10,28 +10,28 @@ export class QuoteComponent implements OnInit {
   quotes: Quotes[] = [
     new Quotes(
       1,
-      'Solitude is a dangerous place to reason, without being favorable to virtue',
+      'Solitude is a dangerous place to reason, without being favorable to virtue.',
       'Dr. Samuel Johnson.',
       new Date(2019, 8, 7),
       'Msamaria Mwema'
     ),
     new Quotes(
       2,
-      'Honesty is the best policy - In the vast majority of cases, influence is wrought by talking',
+      'Honesty is the best policy - In the vast majority of cases, influence is wrought by talking.',
       'Michael Padus',
       new Date(2006, 12, 3),
       'Susan Kathoni'
     ),
     new Quotes(
       3,
-      'You become what you eat',
+      'You become what you eat.',
       'Crispus Matheka',
       new Date(2016, 5, 20),
       'Andrew Marwa'
     ),
     new Quotes(
       4,
-      'It is always best to speak pragmatically to a pragmatic person. Most people will rarely act against their own self interest',
+      'It is always best to speak pragmatically to a pragmatic person. Most people will rarely act against their own self interest.',
       'Robert Greene',
       new Date(2020, 10, 8), 'Sister Susan'
     ),
@@ -64,14 +64,14 @@ export class QuoteComponent implements OnInit {
   }
 
   deleteQuote(isDisliked: boolean, index: number) {
-    if (isDisliked) {
+    // if (isDisliked) {
       let toDelete = confirm(
-        `Are you sure you want to cancel ${this.quotes[index].quoteDescription}?`
+        `Are you sure you want to delete ${this.quotes[index].quoteDescription}?`
       );
       if (toDelete) {
         this.quotes.splice(index, 1);
       }
-    }
+    // }
   }
 
   addNewQuote(newQuote: Quotes) {
